@@ -3,6 +3,8 @@ pathtest = "test.txt"
 rootlinks=[]
 seen=set()
 saw={}
+traininglinks=[]
+
 import math
 import random
 import requests
@@ -66,15 +68,17 @@ def striptext(url):
   soup = BeautifulSoup(web.text,"html.parser")
   result = soup.findAll("body")
   divs = str(result).split("\n")
+  texts=""
 
   for i in range(0,len(divs)):
       forbiden=0
       divs[i] = re.sub('<[^>]+>','',divs[i])
       if(len(divs[i]) < 110): divs[i] = ''
+
       forbiden = divs[i].count("{") + divs[i].count("}")
       if forbiden > 1: divs[i] = ''
 
-  texts=""
+      if divs[i].count("\\") | divs[i].count("="): divs[i] = ''
 
   for x in divs:
       if(x != ''):
@@ -104,13 +108,14 @@ def scrapper(url):
 def extendlink(rlink):
     global seen
     global saw
+    global traininglinks
     fe=["",0]
     times = [[t,rlink.count(t)] for t in seen]
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 40) | (rlink.count(".pdf")) | (rlink.count(".jpg"))):
-         return False
+
+    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg") | (rlink.count(".exe")))): return False
     seen.add(rlink)
     try:
       web = requests.get(rlink,allow_redirects=False)
@@ -120,8 +125,12 @@ def extendlink(rlink):
           link = link.get('href')
           if(link is not None):
             if(link.count("http://") > 0):
-                print("parent: ",link, "webpage")
-                extendlink(link)
+                texto = striptext(link)
+                texto = texto[:int(len(texto)*0.6)]
+                if(texto != '' | (len(texto) > 400 )):
+                    print(link)
+                    traininglinks.append([link,categorize(texto)])
+                    extendlink(link)
     except:
         print("Exception")
 
@@ -130,14 +139,15 @@ def hasval(dic,name):
     else: return 0
 
 
-
-
 classes,totaldocs,docs = loadtrain(path)
 Voc = float(farmingvoc(classes))
-#text,url =striptext("https://www.bba.org.uk/")
-#print(text)
-#result = categorize(text)
-#print(url,"is category: ", result)
 
 
-scrapper("http://www.mmo-champion.com/content/")
+
+
+scrapper("http://www.hopeforpaws.org/about_us")
+output = open("Links.txt","w")
+output.write("number of links: "+str(len(traininglinks))+"\n")
+for i in traininglinks:
+    output.write(str(i[0])+" category: "+str(i[1])+"\n")
+output.close()
