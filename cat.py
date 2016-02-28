@@ -115,7 +115,8 @@ def extendlink(rlink):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
 
-    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg") | (rlink.count(".exe")))): return False
+    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+        |(rlink.count(".tumblr")) | (rlink.count(".exe")))): return False
     seen.add(rlink)
     try:
       web = requests.get(rlink,allow_redirects=False)
@@ -127,7 +128,7 @@ def extendlink(rlink):
             if(link.count("http://") > 0):
                 texto = striptext(link)
                 texto = texto[:int(len(texto)*0.6)]
-                if(texto != '' | (len(texto) > 400 )):
+                if((texto != '') & (len(texto)>400)):
                     print(link)
                     traininglinks.append([link,categorize(texto)])
                     extendlink(link)
@@ -142,12 +143,11 @@ def hasval(dic,name):
 classes,totaldocs,docs = loadtrain(path)
 Voc = float(farmingvoc(classes))
 
-
-
-
-scrapper("http://www.hopeforpaws.org/about_us")
+scrapper("http://www.theverge.com/")
 output = open("Links.txt","w")
 output.write("number of links: "+str(len(traininglinks))+"\n")
 for i in traininglinks:
     output.write(str(i[0])+" category: "+str(i[1])+"\n")
 output.close()
+
+print(2)
