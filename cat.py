@@ -87,11 +87,14 @@ def striptext(url):
   web = requests.get(url)
   soup = BeautifulSoup(web.text,"html.parser")
   body = soup.findAll(text=True)
-  divs = filter(visible,body)
+  divs = list(filter(visible,body))
   bagofWords=""
   for i in divs:
+      i = re.sub('<[^>]+>','',i)
       if(len(i.split(" ")) > 50):
           bagofWords = bagofWords + " " + i
+
+  #Add statement to allow only english pages
   return bagofWords
 
 def scrapper(url):
@@ -122,10 +125,9 @@ def extendlink(rlink):
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 50) | (rlink.count(".pdf")) | (rlink.count(".jpg")
-        |(rlink.count(".tumblr")) | (rlink.count(".exe")))): return False
-    seen.add(rlink)
-
+    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+        |(rlink.count(".tumblr")) | (rlink.count(".exe")))):
+         return False
 
     try:
       web = requests.get(rlink,allow_redirects=False)
@@ -133,10 +135,10 @@ def extendlink(rlink):
       links = soup.findAll('a')
       for link in links:
           link = link.get('href')
-          if(link is not None):
-            if(link.count("http://") > 0):
+          if(link.count("http://") & (link is not None)):
                 texto = striptext(link)
-                if((texto != '') & (len(texto)>100)):
+                if((texto != '') & (len(texto)>500)):
+                    seen.add(link)
                     print(link)
                     traininglinks.append([link,categorize(texto)])
                     extendlink(link)
@@ -147,11 +149,12 @@ def extendlink(rlink):
 classes,totaldocs,docs = loadtrain(path)
 Voc = float(farmingvoc(classes))
 
-#Main()
-scrapper("http://www.theverge.com/")
-output = open("Links.txt","w")
-output.write("number of links: "+str(len(traininglinks))+"\n")
-for i in traininglinks:
+def main():
+  scrapper("http://www.theverge.com/")
+  output = open("Links.txt","w")
+  output.write("number of links: "+str(len(traininglinks))+"\n")
+  for i in traininglinks:
     output.write(str(i[0])+" category: "+str(i[1])+"\n")
-output.close()
+  output.close()
 
+main()
