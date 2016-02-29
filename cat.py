@@ -1,3 +1,14 @@
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import RegexpTokenizer
+
+import math
+import random
+import requests
+from bs4 import BeautifulSoup
+import re
+tokenizer = RegexpTokenizer(r'\w+')
+#globals DONT TOUCH THEM
 path = "train.txt"
 pathtest = "test.txt"
 rootlinks=[]
@@ -5,13 +16,15 @@ seen=set()
 saw={}
 traininglinks=[]
 
-import math
-import random
-import requests
-from bs4 import BeautifulSoup
-import socket
-import struct
-import re
+#helper functions
+def hasval(dic,name):
+    if(name in dic): return dic[name]
+    else: return 0
+
+def textFilter(text):
+    arrayofWords = tokenizer.tokenize(text)
+    filtered_words = [w for w in arrayofWords if not w in stopwords.words('english')]
+    return filtered_words
 
 def loadtrain(path):
   classes={}
@@ -30,6 +43,26 @@ def loadtrain(path):
     totaldocs = totaldocs + documents[k]
   return classes,totaldocs,documents
 
+def AccuracyTest():
+  test = open(pathtest).read().split("\n")
+  correct=0
+  all=0
+  for i in range(100):
+    sample = test[random.randint(0,len(test)-1)].split("\t")
+    bagofwords = sample[1].split(" ")
+    classt = categorize(sample[1])
+    all = all + 1
+    if(sample[0] == classt[0]):correct = correct + 1
+  print("accuracy: ", correct/all)
+
+def visible(element):
+    if element.parent.name in ['style', 'script', '[document]', 'head', 'title']:
+        return False
+    elif re.match('<!--.*-->', str(element)):
+        return False
+    return True
+
+#Core Functions
 def farmingvoc(classss):
     vocabulary=""
     for k in classes:
@@ -37,8 +70,8 @@ def farmingvoc(classss):
     x = len(set(vocabulary.split(" ")))
     return x
 
-def categorize(bagofwords):
-  bagofwords  = bagofwords.split(" ")
+def categorize(text):
+  bagofwords  = textFilter(text)
   argmax=[]
   for k in classes:
     proba=0.0
@@ -50,41 +83,16 @@ def categorize(bagofwords):
   maxi = max(argmax, key=lambda tup: tup[1])
   return maxi
 
-def cattest():
-  classes,totaldocs,docs = loadtrain(path)
-  Voc = float(farmingvoc(classes))
-  test = open(pathtest).read().split("\n")
-  correct=0
-  all=0
-  sample = test[random.randint(0,len(test)-1)].split("\t")
-  bagofwords = sample[1].split(" ")
-  classt = categorize(sample[1])
-  all = all + 1
-  if(sample[0] == classt[0]):correct = correct + 1
-  print("accuracy: ", correct/all)
-
 def striptext(url):
   web = requests.get(url)
   soup = BeautifulSoup(web.text,"html.parser")
-  result = soup.findAll("body")
-  divs = str(result).split("\n")
-  texts=""
-
-  for i in range(0,len(divs)):
-      forbiden=0
-      divs[i] = re.sub('<[^>]+>','',divs[i])
-      if(len(divs[i]) < 110): divs[i] = ''
-
-      forbiden = divs[i].count("{") + divs[i].count("}")
-      if forbiden > 1: divs[i] = ''
-
-      if divs[i].count("\\") | divs[i].count("="): divs[i] = ''
-
-  for x in divs:
-      if(x != ''):
-          texts = texts + " " + x
-
-  return texts
+  body = soup.findAll(text=True)
+  divs = filter(visible,body)
+  bagofWords=""
+  for i in divs:
+      if(len(i.split(" ")) > 50):
+          bagofWords = bagofWords + " " + i
+  return bagofWords
 
 def scrapper(url):
      global seen
@@ -114,10 +122,11 @@ def extendlink(rlink):
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-
-    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+    if((rlink in seen) | (hasval(saw,fe[0]) > 50) | (rlink.count(".pdf")) | (rlink.count(".jpg")
         |(rlink.count(".tumblr")) | (rlink.count(".exe")))): return False
     seen.add(rlink)
+
+
     try:
       web = requests.get(rlink,allow_redirects=False)
       soup = BeautifulSoup(web.text,"html.parser")
@@ -127,22 +136,18 @@ def extendlink(rlink):
           if(link is not None):
             if(link.count("http://") > 0):
                 texto = striptext(link)
-                texto = texto[:int(len(texto)*0.6)]
-                if((texto != '') & (len(texto)>400)):
+                if((texto != '') & (len(texto)>100)):
                     print(link)
                     traininglinks.append([link,categorize(texto)])
                     extendlink(link)
     except:
         print("Exception")
 
-def hasval(dic,name):
-    if(name in dic): return dic[name]
-    else: return 0
-
-
+#Initializing Variables using Training set
 classes,totaldocs,docs = loadtrain(path)
 Voc = float(farmingvoc(classes))
 
+#Main()
 scrapper("http://www.theverge.com/")
 output = open("Links.txt","w")
 output.write("number of links: "+str(len(traininglinks))+"\n")
@@ -150,4 +155,3 @@ for i in traininglinks:
     output.write(str(i[0])+" category: "+str(i[1])+"\n")
 output.close()
 
-print(2)
