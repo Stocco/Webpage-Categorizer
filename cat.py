@@ -16,6 +16,7 @@ seen=set()
 saw={}
 traininglinks=[]
 
+
 #helper functions
 def hasval(dic,name):
     if(name in dic): return dic[name]
@@ -35,12 +36,16 @@ def loadtrain(path):
   del docs[len(docs)-1]
   for i in docs:
          first = i.split("\t")
+
          if(first[0] not in documents):documents[first[0]]=1
          else: documents[first[0]] = documents[first[0]] + 1
+
          if(first[0] not in classes): classes[first[0]] = first[1]
          else:classes[first[0]] = classes[first[0]] + " " + first[1]
+
   for k in documents:
     totaldocs = totaldocs + documents[k]
+
   return classes,totaldocs,documents
 
 def AccuracyTest():
@@ -49,7 +54,6 @@ def AccuracyTest():
   all=0
   for i in range(100):
     sample = test[random.randint(0,len(test)-1)].split("\t")
-    bagofwords = sample[1].split(" ")
     classt = categorize(sample[1])
     all = all + 1
     if(sample[0] == classt[0]):correct = correct + 1
@@ -62,6 +66,52 @@ def visible(element):
         return False
     return True
 
+def binning(string):
+    interest={
+        "alt.atheism" : 1,
+        "comp.graphics" : 3,
+        "comp.os.ms-windows.misc" : 2,
+        "comp.sys.ibm.pc.hardware" : 2,
+        "comp.sys.mac.hardware" : 2,
+        "comp.windows.x" : 4,
+        "misc.forsale" : 1,
+        "rec.autos" : 1,
+        "rec.motorcycles" : 1,
+        "rec.sport.baseball" : 1,
+        "rec.sport.hockey" : 1,
+        "sci.crypt" : 4,
+        "sci.electronics"	: 4,
+        "sci.med"	: 3,
+        "sci.space" : 4,
+        "soc.religion.christian" : 1,
+        "talk.politics.guns" : 1,
+        "talk.politics.mideast" : 2,
+        "talk.politics.misc" : 2,
+        "talk.religion.misc" : 1
+    }
+    return interest[string]
+
+def loadInterest(path):
+    interestClass={1:0,2:0,3:0,4:0}
+    interestDoc={1:"",2:"",3:"",4:""}
+    totalDocs=0
+    fr = open(path)
+
+    #x[2][2:-2] to extract category label
+    for line in fr.readlines():
+        print(line)
+        link = line.split(" ")
+        InterestNumber = binning(link[2][2:-2])
+        text = striptext(link[0])
+        interestClass[InterestNumber] = interestClass[InterestNumber] + 1
+        interestDoc[InterestNumber] = interestDoc[InterestNumber] + " " + text
+
+    for i in interestClass:
+        totalDocs = totalDocs + interestClass[i]
+
+    return interestClass,totalDocs,interestDoc
+
+
 #Core Functions
 def farmingvoc(classss):
     vocabulary=""
@@ -70,7 +120,7 @@ def farmingvoc(classss):
     x = len(set(vocabulary.split(" ")))
     return x
 
-def categorize(text):
+def categorizeTopics(text):
   bagofwords  = textFilter(text)
   argmax=[]
   for k in classes:
@@ -114,7 +164,7 @@ def scrapper(url):
          print("===============================!================================================")
          print("ROOT LINK: ",rlink)
          print("================================================================================")
-         extendlink(rlink)
+         if(rlink not in seen): extendlink(rlink)
 
 def extendlink(rlink):
     global seen
@@ -125,7 +175,7 @@ def extendlink(rlink):
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 5) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+    if((rlink in seen) | (hasval(saw,fe[0]) > 20) | (rlink.count(".pdf")) | (rlink.count(".jpg")
         |(rlink.count(".tumblr")) | (rlink.count(".exe")))):
          return False
 
@@ -135,19 +185,15 @@ def extendlink(rlink):
       links = soup.findAll('a')
       for link in links:
           link = link.get('href')
-          if(link.count("http://") & (link is not None)):
+          if((link.count("http://") | (link.count("https://"))) & (link is not None) & (link not in seen)):
                 texto = striptext(link)
                 if((texto != '') & (len(texto)>500)):
                     seen.add(link)
                     print(link)
-                    traininglinks.append([link,categorize(texto)])
+                    traininglinks.append([link,categorizeTopics(texto)])
                     extendlink(link)
     except:
         print("Exception")
-
-#Initializing Variables using Training set
-classes,totaldocs,docs = loadtrain(path)
-Voc = float(farmingvoc(classes))
 
 def main():
   scrapper("http://www.theverge.com/")
@@ -157,4 +203,12 @@ def main():
     output.write(str(i[0])+" category: "+str(i[1])+"\n")
   output.close()
 
-main()
+
+
+#Initializing Variables using Training set
+#classes,totaldocs,docs = loadtrain(path)
+#Voc = float(farmingvoc(classes))
+#main()
+
+loadInterest("Links.txt")
+
