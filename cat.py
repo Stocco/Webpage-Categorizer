@@ -10,8 +10,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import SGDClassifier
-import numpy as np
+from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
+import numpy as np
 tokenizer = RegexpTokenizer(r'\w+')
 #globals DONT TOUCH THEM
 path = "train.txt"
@@ -57,12 +58,12 @@ def AccuracyTest():
   test = open(pathtest).read().split("\n")
   correct=0
   all=0
-  for i in range(100):
+  for i in range(500):
     sample = test[random.randint(0,len(test)-1)].split("\t")
-    classt = categorize(sample[1])
+    classt = categorizeTopics(sample[1])
     all = all + 1
     if(sample[0] == classt[0]):correct = correct + 1
-  print("accuracy: ", correct/all)
+  print("Ours Naive Bayes  Raw Accuracy is : ", correct/all, " using", all, "random samples")
 
 def visible(element):
     if element.parent.name in ['style', 'script', '[document]', 'head', 'title']:
@@ -241,6 +242,13 @@ def svmToolkitTrain():
                       ('clf', SGDClassifier(loss='hinge', penalty='l2',
                                             alpha=1e-3, n_iter=5, random_state=42)),
  ])
+
+  NBclf = Pipeline([('vect', CountVectorizer()),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', MultinomialNB()),
+ ])
+
+
   class dados(object):
       data = []
       target = []
@@ -264,14 +272,16 @@ def svmToolkitTrain():
       test.data.append(doc[1])
       test.target.append(LabeltoNum(doc[0]))
 
-  clf = text_clf.fit(train.data,train.target)
+  clf = NBclf.fit(train.data,train.target)
 
-  x = clf.predict([test.data[15]])
-  print(test.target_names[x], "ca", test.data[15])
-
-
+ # x = clf.predict([test.data[15]])
   docs_eval = test.data
   predicted = clf.predict(docs_eval)
+  print("Naive Bayes Results with our Train/test Data")
+  print("Raw Accuracy Naive Bayes: ", np.mean(predicted == test.target))
+
+
+
   print(metrics.classification_report(test.target, predicted,
       target_names=test.target_names))
 
@@ -279,13 +289,14 @@ def svmToolkitTrain():
 
 
 #Initializing Variables using Training set
-#classes,totaldocs,docs = loadtrain(path)
-#Voc = float(farmingvoc(classes))
+classes,totaldocs,docs = loadtrain(path)
+Voc = float(farmingvoc(classes))
 #main()
 #loadInterest("Links.txt")
 
+AccuracyTest()
 
-
+#svmToolkitTrain()
 # scrapped
 #  twenty_train = fetch_20newsgroups(subset='train',shuffle='True',random_state=42)
 
