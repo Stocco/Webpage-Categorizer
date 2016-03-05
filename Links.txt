@@ -1,72 +1,284 @@
-http://www.theverge.com/2016/2/28/11121830/lady-gaga-performance-watch-academy-awards-2016 category: ['talk.politics.misc', -1043.9471629367695]
-http://www.theverge.com/2016/2/29/11133374/bugatti-chiron-pictures category: ['sci.space', -665.7472584656854]
-http://www.theverge.com/2016/2/29/11134344/google-self-driving-car-crash-report category: ['rec.autos', -5038.400694379302]
-http://www.youtube.com/subscription_center?add_user=theverge category: ['rec.motorcycles', -456.3627685954052]
-http://www.theverge.com/rss/frontpage category: ['sci.med', -7775.496475574849]
-http://www.theverge.com/2016/2/29/11136624/man-taking-truvada-contracts-hiv category: ['sci.med', -583.0588916842313]
-http://www.theverge.com/2016/2/29/11050856/rolls-royce-black-badge-announced-geneva-motor-show-2016 category: ['comp.windows.x', -1171.6111559370786]
-http://www.theverge.com/2016/2/29/11136252/zika-virus-causes-guillain-barre-syndrome category: ['sci.med', -5463.955974065667]
-http://www.theverge.com/2016/2/29/11136156/academy-awards-2016-reaction-video category: ['sci.med', -640.1331270183564]
-http://www.theverge.com/2016/2/29/11135986/new-york-apple-fbi-iphone-encryption-ruling category: ['talk.politics.misc', -3053.794486292431]
-http://www.theverge.com/a/best-vr-headset-oculus-rift-samsung-gear-htc-vive-virtual-reality category: ['sci.electronics', -16367.384807572667]
-http://www.theverge.com/2016/2/29/11135208/volkswagen-phideon-photo-china-launch category: ['rec.autos', -1045.6935278396613]
-http://www.theverge.com/2016/2/29/11134122/lm-cable-kickstarter-lightning-microusb category: ['comp.sys.mac.hardware', -978.4987754128243]
-http://www.theverge.com/2016/2/29/11134956/frank-ocean-new-album-listening-party-boys-dont-cry category: ['sci.crypt', -804.3565883806767]
-http://www.theverge.com/2016/2/29/11133682/deep-learning-ai-explained-machine-learning category: ['sci.med', -10563.375718368485]
-http://www.theverge.com/2016/2/29/11134904/electric-skateboard-mischo-erban-guinness-world-record-nextboard category: ['sci.space', -610.6510995413516]
-http://www.theverge.com/2016/2/29/11134154/the-legend-of-zelda-majoras-mask-real-masks category: ['comp.windows.x', -934.9508867881265]
-http://www.theverge.com/2016/2/29/11133720/apple-fbi-encryption-legal-defense-burden category: ['sci.crypt', -8779.341461056858]
-http://www.theverge.com/2016/2/29/11133668/morgan-freeman-girl-scout-cookies-oscars-2016 category: ['sci.crypt', -629.8018883443864]
-http://www.theverge.com/2016/2/29/11133564/uber-nyc-demand-fare-cut-city-council-bills category: ['talk.politics.misc', -1680.4840526820262]
-http://www.theverge.com/2016/2/29/11133508/geneva-auto-show-2016-cars-models-news category: ['rec.autos', -2757.0859668906573]
-http://www.theverge.com/2016/2/29/11133158/the-popslate-2-comes-with-a-bigger-e-ink-display-and-will-charge-your category: ['comp.sys.mac.hardware', -1176.943197511751]
-http://www.theverge.com/2016/2/29/11133152/batman-v-superman-teaser-clip-gun category: ['sci.crypt', -681.8246106499629]
-http://www.theverge.com/2016/2/29/11133078/bugatti-chiron-diamond-speaker-tweeters-geneva-motor-show-2016 category: ['sci.space', -1310.3232679137836]
-http://www.theverge.com/2016/2/29/11133266/apple-fbi-judiciary-committee-encryption-statement category: ['sci.crypt', -3715.1001787963974]
-http://www.theverge.com/2016/2/29/11132986/snapchat-live-stories-web-player-launches category: ['comp.windows.x', -1026.8709228842954]
-http://www.theverge.com/2016/2/29/11132084/bugatti-chiron-announced-geneva-motor-show-2016 category: ['rec.autos', -4117.61557078155]
-http://www.theverge.com/2016/2/29/11133080/sam-smith-speech-ian-mckellen-lgbt-academy-awards-2016 category: ['talk.politics.misc', -3043.5555559487016]
-http://www.theverge.com/2016/2/29/11132988/snapchat-employee-data-breach-payroll-phishing category: ['sci.crypt', -673.1289188461394]
-http://www.theverge.com/2016/2/29/11133120/lamborghini-centenario-leak category: ['comp.windows.x', -834.3267645132968]
-http://www.theverge.com/2016/2/29/11132952/young-conker-microsoft-hololens-rare-video category: ['sci.med', -1020.7636075082945]
-http://www.theverge.com/2016/2/29/11132364/htc-valve-vive-vr-preorders-open-shipping-date category: ['sci.space', -842.4367979234468]
-http://www.theverge.com/2016/2/29/11122918/the-walking-dead-season-6-episode-11-knots-untie-recap category: ['soc.religion.christian', -5187.456030053108]
-http://www.theverge.com/2016/2/29/11132138/microsoft-hololens-development-edition-release-date-features category: ['comp.windows.x', -691.6391048624812]
-http://www.theverge.com/2016/2/29/11132124/microsoft-hololens-apps-games category: ['comp.graphics', -4051.915348827067]
-http://www.theverge.com/2016/2/29/11132090/microsoft-hololens-hardware-specifications-developer-kit category: ['sci.space', -1868.553262718902]
-http://www.theverge.com/2016/2/29/11131150/amazon-dash-brita-water-pitcher-filters category: ['sci.electronics', -1541.330670244798]
-http://www.theverge.com/2016/2/29/11132098/australia-drone-shark-attack-little-ripper category: ['sci.crypt', -691.7337244734903]
-http://www.theverge.com/2016/2/29/11132180/us-eu-privacy-shield-full-text category: ['sci.crypt', -1691.1398747399708]
-http://www.theverge.com/2016/2/29/11113500/first-click-bunny-sexism-exotic-cars-and-more-in-the-week-ahead category: ['sci.space', -782.5585729695351]
-http://www.theverge.com/2016/2/29/11132016/facebook-sleep-tracker-messenger-activity category: ['sci.crypt', -1160.2810704595381]
-http://www.theverge.com/2016/2/29/11122950/raspberry-pi-3-announced-price-specs-release-date category: ['comp.sys.mac.hardware', -2733.2032786471923]
-http://www.theverge.com/2016/2/29/11131948/oscars-2016-senator-claire-mccaskill-mad-max-cosplay category: ['sci.med', -1241.9556002463605]
-http://www.theverge.com/2016/2/29/11131818/thank-you-ticker-speeches-academy-awards-2016 category: ['talk.politics.misc', -2526.632035194348]
-http://www.theverge.com/2016/2/29/11131218/mad-max-fury-road-most-awards-academy-awards-2016 category: ['sci.crypt', -955.5820763748335]
-http://www.theverge.com/2016/2/29/11131484/academy-president-cheryl-boone-isaacs-hollywood-diversity-oscars-2016 category: ['talk.politics.misc', -971.124278772563]
-http://www.theverge.com/2016/2/28/11122072/brie-larson-wins-best-actress-room-academy-awards-2016 category: ['comp.windows.x', -650.5163264510895]
-http://www.theverge.com/2016/2/28/11121774/amy-best-documentary-feature-academy-awards-2016 category: ['sci.space', -676.4745170959023]
-http://www.theverge.com/2016/2/28/11131296/androids-commercial-rock-paper-scissors-bffs category: ['soc.religion.christian', -1493.1269887657431]
-http://www.theverge.com/2016/2/28/11130690/ex-machina-win-best-visual-effects-academy-awards-2016 category: ['sci.med', -776.9131634275238]
-http://www.theverge.com/2016/2/28/11131050/stacey-dash-black-history-month-academy-awards-2016 category: ['sci.crypt', -583.6200109746935]
-http://www.theverge.com/2016/2/28/11130448/samsung-oscars-2016-commercial-galaxy-s7-gear-vr category: ['sci.space', -845.9241191297931]
-http://www.theverge.com/2016/2/28/11122044/sam-smith-performance-watch-academy-awards-2016 category: ['comp.windows.x', -991.557576563818]
-http://www.theverge.com/2016/2/28/11121466/chris-rock-academy-awards-2016-monologue category: ['comp.windows.x', -676.6481973023605]
-http://www.theverge.com/2016/2/28/11130412/oscars-speech-thank-you-scroll-academy-awards-2016 category: ['sci.crypt', -564.9144519724962]
-http://www.theverge.com/2016/2/28/11130762/microsoft-windows-10-ads-highlight-what-macs-cant-do category: ['comp.sys.mac.hardware', -836.0079911520728]
-http://www.theverge.com/2016/2/28/11130516/oscars-2016-winners-88th-academy-awards category: ['talk.politics.misc', -3923.3794737194166]
-http://www.theverge.com/2016/2/28/11121792/this-month-in-luxury-mercedes-benz-s-class-robots-humans category: ['sci.space', -1332.7505378238993]
-http://www.theverge.com/2016/2/28/11124798/space-launches-calendar-2016-missions-schedule category: ['sci.space', -2524.013317009536]
-http://www.theverge.com/2016/2/28/11129516/htc-vive-price-international-europe-uk-japan-australia category: ['comp.sys.mac.hardware', -1600.7373023700177]
-http://www.theverge.com/2016/2/28/11127706/htc-vive-tilt-brush-vr-painting-demo category: ['comp.graphics', -6312.665000144202]
-http://www.theverge.com/2016/2/28/11126546/penn-station-worst-train-lirr-amtrak-nj-transit category: ['sci.space', -9701.348141296887]
-http://www.theverge.com/2016/2/28/11118856/marc-newson-phone-talby-au-kddi category: ['sci.crypt', -2065.492604347022]
-http://www.theverge.com/2016/2/28/11120948/the-verge-review-of-animals-the-wildebeest category: ['sci.med', -4671.021324363954]
-http://www.theverge.com/2016/2/28/11121048/oscars-2016-live-stream-time-watch-online-88th-academy-awards category: ['sci.crypt', -1480.9953210822916]
-http://www.theverge.com/video category: ['sci.crypt', -512.2897486786501]
-http://www.theverge.com/video/2016/2/24/11105600/samsung-galaxy-s7-edge-lg-g5-comparison category: ['sci.crypt', -626.1578224669238]
-http://www.theverge.com/ethics-statement category: ['sci.crypt', -4884.976220733988]
-http://www.theverge.com/community-guidelines category: ['sci.crypt', -3901.322465509403]
-http://www.voxmedia.com/terms-of-use category: ['sci.crypt', -22001.873566151124]
-http://www.voxmedia.com/privacy-policy category: ['sci.crypt', -10935.644936959427]
-http://www.theverge.com/video/2015/11/19/9760354/ipad-pro-surface-pro-4-comparison category: ['sci.crypt', -508.62121884862665]
+number of links: 283
+http://www.theverge.com/2016/3/3/11158490/kendrick-lamar-untitled-unmastered-new-album sci.crypt
+http://www.theverge.com/2016/3/3/11156320/scott-kelly-year-in-space-younger-taller-relativity-gravity sci.space
+http://www.theverge.com/2016/3/4/11159700/oculus-rift-mac-support-apple sci.crypt
+http://www.theverge.com/2016/3/4/11161190/htc-10-smartphone-photos-specs-leak sci.crypt
+http://www.youtube.com/subscription_center?add_user=theverge rec.motorcycles
+http://www.theverge.com/rss/frontpage sci.crypt
+http://www.theverge.com/2016/3/4/11164046/google-posts-search-results-self-promotion-advertising sci.crypt
+http://www.theverge.com/2016/3/4/11110490/spacex-falcon-9-rocket-landing-explosion sci.space
+http://www.theverge.com/2016/3/4/11163788/california-bullet-train-delayed-sf-la-2025 sci.space
+http://www.theverge.com/2016/3/4/11163796/this-is-your-next-jam-verge-playlist-m83-santigold soc.religion.christian
+http://recode.net/2016/03/04/meerkat-is-ditching-the-livestream-and-chasing-a-video-social-network-instead/ sci.crypt
+http://www.theverge.com/2016/3/4/11161944/heres-how-experts-will-test-the-knife-found-at-ojs-estate talk.politics.guns
+http://www.theverge.com/2016/3/4/11162422/windows-10-update-new-cortana-languages-easy-reminders comp.os.ms-windows.misc
+http://www.theverge.com/2016/3/4/11162192/tinder-profile-link-share-update comp.windows.x
+http://www.theverge.com/2016/3/4/11161710/ferrari-f40-lego-set sci.space
+http://www.theverge.com/2016/3/4/11161472/google-eu-right-to-be-forgotten-all-sites sci.crypt
+http://www.theverge.com/2016/3/4/11161462/microsoft-xbox-one-apps-universal-build-2016 comp.os.ms-windows.misc
+http://www.theverge.com/2016/3/4/11161360/zika-virus-birth-defect-causes-fetus-brain-study sci.med
+http://www.theverge.com/2016/3/4/11160838/darpa-lightning-strike-aircraft-video-v22-osprey sci.space
+http://www.theverge.com/2016/3/4/11160736/panorama-2016-tickets-on-sale-playlist sci.crypt
+http://www.theverge.com/2016/3/4/11161228/pokemon-red-blue-yellow-nintendo-3ds-review sci.crypt
+http://www.theverge.com/2016/3/4/11158890/i-am-cait-season-two-review-trans-activism-roadtrip soc.religion.christian
+http://www.theverge.com/2016/3/4/11160942/barnes-noble-nook-app-store-shutting-down-march-15th comp.windows.x
+http://www.theverge.com/2016/3/4/11160962/google-maps-the-legend-of-zelda comp.windows.x
+http://www.theverge.com/2016/3/4/11157842/new-trailers-ghostbusters-finding-dory-nina-and-more sci.space
+http://www.theverge.com/2016/3/4/11160620/new-octopod-species-noaa-super-cute-octopus sci.crypt
+http://www.theverge.com/2016/2/24/11104962/spacex-falcon-9-rocket-watch-launch-livestream-february-24 sci.space
+http://www.theverge.com/2016/3/4/11160018/snapchat-mlb-selfie-stick-spring-training rec.sport.baseball
+http://www.theverge.com/2016/3/4/11159084/whiskey-tango-foxtrot-movie-review-tina-fey talk.politics.guns
+http://www.theverge.com/2016/3/4/11160044/france-apple-encryption-terrorism-law sci.crypt
+http://www.theverge.com/2016/3/4/11160104/tim-sweeney-microsoft-walled-garden-criticism comp.os.ms-windows.misc
+http://www.theverge.com/2016/3/4/11160020/facebook-uk-tax-structure-change talk.politics.misc
+http://www.theverge.com/2016/3/4/11159858/sony-n-wearable-future-lab-program sci.electronics
+http://www.theverge.com/2016/3/3/11159234/san-bernardino-iphone-cyber-pathogen-district-attorney sci.crypt
+http://www.theverge.com/2016/3/3/11158964/kendrick-lamar-new-album-untitled-unmastered sci.crypt
+http://www.theverge.com/tldr/2016/3/3/11158742/donald-trump-debate sci.crypt
+http://www.theverge.com/2016/3/3/11158652/crystal-castles-tumblr-sxsw-music-79-cents-removed soc.religion.christian
+http://www.theverge.com/2016/3/3/11158160/uber-lyft-unions-chamber-of-commerce-lawsuit sci.crypt
+http://www.theverge.com/2016/3/3/11157752/amazon-fire-os-encryption-removed-upgrade sci.crypt
+http://www.theverge.com/2016/3/3/11157494/macklemore-ryan-lewis-this-unruly-mess-ive-made-new-album soc.religion.christian
+http://www.theverge.com/2016/3/3/11157394/amazon-alexa-fire-phone-failure-echo-success-smart-home sci.crypt
+http://www.theverge.com/2016/3/3/11157124/instagram-blocks-snapchat-telegram-links sci.crypt
+http://www.theverge.com/2016/3/3/11157362/sci-fi-film-selfie-stick-1970 sci.crypt
+http://www.theverge.com/2016/3/3/11156704/apple-fbi-amicus-briefs-iphone-encryption-fight sci.crypt
+http://www.theverge.com/2016/3/3/11154044/disney-scarlet-witch-avengers-toys misc.forsale
+http://www.theverge.com/2016/3/3/11156022/ocean-floor-noises-whale-earthquakes-noaa-soundcloud sci.space
+http://www.theverge.com/2016/3/3/11155860/house-of-cards-season-4-review-kevin-spacey-netflix talk.politics.guns
+http://www.theverge.com/2016/3/3/11155154/smithsonian-museum-exhibit-fish-biocube-nature sci.space
+http://recode.net/2016/03/03/facebook-wants-to-pay-for-nfl-streaming-rights-but-apple-doesnt/ misc.forsale
+http://www.theverge.com/2016/3/3/11155926/facebook-messenger-spotify-song-and-playlist-sharing-integration-launches comp.windows.x
+http://www.theverge.com/2016/3/3/11153978/ghosbusters-paul-feig-sexism-pro-tips-for-beginners soc.religion.christian
+http://www.theverge.com/2016/3/3/11155308/amazon-echo-dot-order-workaround-mobile-app comp.windows.x
+http://www.theverge.com/2016/3/3/11155270/stretchy-electroluminescent-skin-robot-cornell-university sci.electronics
+http://www.theverge.com/2016/3/3/11152796/psychology-reproducibility-fight-between-scientists sci.med
+http://www.theverge.com/2016/3/3/11153832/tumblr-sxsw-music-79-cents-event-crystal-castles soc.religion.christian
+http://www.theverge.com/tldr/2016/3/3/11153998/jaguar-jet-skis-stunt-world-record-speed-attempt rec.autos
+http://www.theverge.com/2016/3/3/11154222/force-awakens-blu-ray-dvd-digital-release-date-announced sci.crypt
+http://www.theverge.com/2016/3/3/11149306/rando-app-random-messages sci.crypt
+http://www.theverge.com/2016/3/3/11154150/valve-steam-christmas-breach sci.crypt
+http://www.theverge.com/2016/3/3/11153820/santigold-interview-99-cents-album-tumblr-irl-streaming soc.religion.christian
+http://www.theverge.com/2016/3/3/11153908/iphone-security-fbi-danger-encryption-court-brief sci.crypt
+http://www.theverge.com/2016/3/3/11150960/ghostbusters-interview-paul-feig-katie-dippold-trailer-analysis soc.religion.christian
+http://www.theverge.com/2016/3/3/11152914/china-weibo-censorship-southern-weekly sci.crypt
+http://www.theverge.com/2016/3/3/11153216/pokemon-gif-anniversary-gameboy-nintendo-3ds sci.electronics
+http://www.theverge.com/2016/3/3/11152396/no-mans-sky-preview-sean-murray-interview-ps4-pc sci.space
+http://www.theverge.com/2016/3/3/11151838/no-mans-sky-iam8bit-merchandise misc.forsale
+http://www.theverge.com/2016/3/3/11151030/no-mans-sky-release-date-ps4-pc sci.space
+http://www.theverge.com/2016/3/3/11151730/samsung-gear-vr-six-flags-virtual-reality-roller-coaster sci.space
+http://www.theverge.com/2016/3/3/11151134/geneva-motor-show-highlights-2016-car-lamborghini-aston-martin sci.crypt
+http://www.theverge.com/2016/3/3/11151588/formula-one-semi-closed-cockpit-practice-laps-photos rec.autos
+http://www.theverge.com/2016/3/3/11151640/apple-support-twitter-account-launches comp.sys.mac.hardware
+http://www.theverge.com/2016/3/3/11150324/new-ghostbusters-movie-trailer-paul-feig comp.windows.x
+http://www.theverge.com/2016/3/3/11148776/amazon-echo-tap-speaker-price-availability-photos-video sci.crypt
+http://www.theverge.com/2016/3/3/11148672/moon-shot-trailer-jj-abrams-google-xprize-rover-documentary sci.space
+http://www.theverge.com/2016/3/3/11148624/amazon-alexa-nest-honeywell-thermostat-control comp.windows.x
+http://www.theverge.com/2016/3/3/11148532/amazon-echo-dot-limited-availability-echo-firetv-alexa sci.crypt
+http://www.theverge.com/2016/3/3/11148464/amazon-echo-dot-announced-price-availability-photos-video sci.electronics
+http://www.theverge.com/2016/3/3/11151258/bmw-i8-protonic-red-geneva-motor-show-2016 rec.autos
+http://www.theverge.com/2016/3/3/11150828/apple-carplay-android-auto-geneva-motor-show-2016 rec.autos
+http://www.theverge.com/2016/3/3/11151114/joseph-gordon-levitt-amazon-k-troop-kkk sci.crypt
+http://www.theverge.com/2016/3/3/11151052/google-zika-outbreak-mapping-data-search-youtube sci.crypt
+http://www.theverge.com/2016/3/2/11150586/fast-radio-bursts-repeating-galaxy sci.space
+http://www.theverge.com/2016/3/2/11148006/waterlily-beetle-water-skiing-video-standford sci.med
+http://www.theverge.com/2016/3/2/11148184/sony-playstation-vue-price-cut-espn-disney-channels rec.sport.hockey
+http://www.theverge.com/2016/3/2/11147832/f1-closed-cockpits-fia-tests-photos sci.space
+http://www.theverge.com/2016/3/2/11147730/bugatti-wolfgang-durheimer-ceo-interview-geneva-motor-show-2016 sci.crypt
+http://www.theverge.com/2016/3/2/11146584/bitcoin-core-classic-debate-transaction-limit-crisis sci.crypt
+http://www.theverge.com/2016/3/2/11147778/slack-voice-calling-feature-beta-launches comp.windows.x
+http://www.theverge.com/2016/3/2/11147884/marble-machine-music-wintergartan-martin-molin sci.crypt
+http://www.theverge.com/2016/3/2/11145676/htc-vive-pre-vr-headset-preview sci.electronics
+http://www.theverge.com/2016/3/2/11147530/nasa-scott-kelly-first-interview-post-year-in-space sci.space
+http://www.theverge.com/2016/3/2/11147234/google-hands-free-android-pay-mobile-payments-app sci.crypt
+http://www.theverge.com/2016/3/2/11147038/uber-pool-bay-area-expansion-commute-california rec.motorcycles
+http://www.theverge.com/2016/3/2/11147068/boeing-727-last-flight-live-stream-watch-online sci.space
+http://www.theverge.com/2016/3/2/11146450/fcc-tom-wheeler-2016-agenda sci.crypt
+http://www.theverge.com/2016/3/2/11146898/chris-christie-donald-trump-endorsement-soul soc.religion.christian
+http://www.theverge.com/2016/3/2/11146140/youtube-launches-two-initiatives-support-female-filmmakers talk.politics.misc
+http://www.theverge.com/2016/3/2/11146632/electronic-cigarette-planes-ban-DOT-vape sci.crypt
+http://www.theverge.com/2016/3/2/11146278/iphone-corporate-management-reminder-in-ios-beta sci.crypt
+http://www.theverge.com/2016/3/2/11145904/drone-hijack-nils-rodday-security sci.crypt
+http://www.theverge.com/2016/3/2/11146446/president-barack-first-lady-michelle-obama-sxsw-appearance-dates sci.crypt
+http://www.theverge.com/2016/3/2/11146420/hack-the-pentagon-department-of-defense-bug-bounty sci.crypt
+http://www.theverge.com/2016/3/2/11146206/kanye-west-life-of-pablo-pornhub-stream sci.crypt
+http://www.theverge.com/2016/3/2/11146054/spotify-fresh-finds-rising-star-new-hits-discovery-feature sci.crypt
+http://www.theverge.com/2016/3/2/11145832/pro-tip-best-way-headphone-wrap-tangle comp.sys.mac.hardware
+http://www.theverge.com/2016/3/2/11145852/abarth-fiat-124-spider-announced-geneva-motor-show-2016 rec.autos
+http://www.theverge.com/2016/3/2/11145338/lazareth-lm847-announced-geneva-motor-show-2016 rec.motorcycles
+http://www.theverge.com/2016/3/2/11140928/app-store-economy-apple-android-pixite-bankruptcy sci.space
+http://www.theverge.com/2016/3/2/11145824/mass-effect-andromeda-2017-delay sci.crypt
+http://www.theverge.com/2016/3/2/11145494/facebook-vp-being-released-brazil-whatsapp-dispute sci.crypt
+http://www.theverge.com/2016/3/2/11145372/bentley-mulsanne-grand-limousine-geneva-motor-show-2016 rec.autos
+http://www.theverge.com/2016/3/2/11145670/fuller-house-netflix-second-season-renewal soc.religion.christian
+http://www.theverge.com/2016/3/2/11144588/walt-mossberg-apple-vs-fbi-iphone-icloud-loophole sci.crypt
+http://www.theverge.com/2016/3/2/11140914/samsung-pay-wells-fargo-support-5-million-users sci.crypt
+http://www.theverge.com/2016/3/2/11141186/knight-of-cups-movie-review-terrence-malick-christian-bale soc.religion.christian
+http://www.theverge.com/2016/3/2/11145464/call-of-duty-live-event-viewer-e-sports-ps4 rec.sport.hockey
+http://www.theverge.com/2016/3/2/11145150/apollo-arrow-announced-geneva-motor-show-2016 rec.autos
+http://www.theverge.com/2016/3/2/11114228/first-click-giving-a-faded-brand-a-second-chance sci.crypt
+http://www.theverge.com/2016/3/2/11145184/france-facebook-kids-photos-privacy sci.crypt
+http://www.theverge.com/2016/3/2/11145148/kanye-west-pirate-bay-torrent-twitter sci.crypt
+http://www.theverge.com/video sci.crypt
+http://www.theverge.com/2016/3/1/11144594/nasa-astronaut-scott-kelly-lands-safely-following-year-in-space sci.space
+http://www.theverge.com/2016/2/24/11094524/prt-transit-history-self-driving-cars-alden-starrcar-tomorrowland-1960s rec.autos
+http://www.theverge.com/2016/2/17/11030406/neverware-google-chromebook-chromium-os-education-microsoft comp.sys.mac.hardware
+http://www.theverge.com/2016/2/11/10923808/microsoft-windows-start-menu-20-years-visual-history comp.os.ms-windows.misc
+http://www.theverge.com/2016/2/3/10895804/st-louis-police-hunchlab-predictive-policing-marshall-project talk.politics.guns
+http://www.theverge.com/2016/1/28/10852998/san-francisco-water-supply-yosemite-lawsuit-restore-hetch-hetchy talk.politics.mideast
+http://www.theverge.com/2016/1/13/10758380/stingray-surveillance-device-daniel-rigmaiden-case sci.crypt
+http://www.theverge.com/2016/1/6/10718282/internet-bots-messaging-slack-facebook-m sci.crypt
+http://www.theverge.com/2015/12/10/9880594/microsoft-xbox-games-2016-interview-crackdown-3-quantum-break-recore sci.crypt
+http://www.theverge.com/a/transhumanism-2015 talk.politics.mideast
+http://status.voxmedia.com comp.graphics
+http://theverge.tumblr.com rec.autos
+http://youtube.com/theverge rec.motorcycles
+http://www.theverge.com/ethics-statement sci.crypt
+http://www.theverge.com/community-guidelines sci.crypt
+http://www.voxmedia.com/terms-of-use sci.crypt
+http://www.voxmedia.com/privacy-policy sci.crypt
+http://www.theverge.com/reviews/categories/video-cameras/9 sci.crypt
+http://www.theverge.com/reviews/categories/dslrs/10 sci.crypt
+http://www.theverge.com/reviews/categories/home-consoles/14 sci.crypt
+http://www.theverge.com/reviews/categories/gaming-accessories/38 comp.sys.mac.hardware
+http://www.theverge.com/reviews/categories/headphones-headsets/24 sci.crypt
+http://www.theverge.com/reviews/categories/misc/27 sci.crypt
+http://www.theverge.com/reviews/categories/pmps/7 comp.windows.x
+http://www.theverge.com/reviews/categories/displays/50 sci.crypt
+http://www.theverge.com/reviews/categories/software/64 sci.crypt
+http://www.theverge.com/reviews/categories/speakers-docks/56 sci.crypt
+http://www.theverge.com/reviews/categories/input-devices/58 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/categories/keyboards-mice/59 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/categories/wearables/65 comp.windows.x
+http://www.theverge.com/reviews/brands/1weather/582 sci.crypt
+http://www.theverge.com/reviews/brands/accuweather-platinum/580 sci.crypt
+http://www.theverge.com/reviews/brands/adobe/566 comp.windows.x
+http://www.theverge.com/reviews/brands/adonit/398 sci.crypt
+http://www.theverge.com/reviews/brands/amazon/7 sci.crypt
+http://www.theverge.com/reviews/brands/anker/655 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/brands/apalon-apps/613 sci.crypt
+http://www.theverge.com/reviews/brands/apple/8 sci.crypt
+http://www.theverge.com/reviews/brands/applydea/429 sci.crypt
+http://www.theverge.com/reviews/brands/archos/9 sci.crypt
+http://www.theverge.com/reviews/brands/arctic-accessories/417 sci.crypt
+http://www.theverge.com/reviews/brands/arcus-weather/583 sci.crypt
+http://www.theverge.com/reviews/brands/asus/10 comp.windows.x
+http://www.theverge.com/reviews/brands/barnes-noble/11 comp.windows.x
+http://www.theverge.com/reviews/brands/basis/495 sci.med
+http://www.theverge.com/reviews/brands/beats/189 sci.crypt
+http://www.theverge.com/reviews/brands/belkin/266 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/brands/bose/166 sci.crypt
+http://www.theverge.com/reviews/brands/boxer/659 sci.crypt
+http://www.theverge.com/reviews/brands/boxer8/441 sci.crypt
+http://www.theverge.com/reviews/brands/braven/405 sci.crypt
+http://www.theverge.com/reviews/brands/chumby/234 sci.crypt
+http://www.theverge.com/reviews/brands/clamcase/448 comp.windows.x
+http://www.theverge.com/reviews/brands/closeli/624 sci.crypt
+http://www.theverge.com/reviews/brands/cloudmagic/658 sci.crypt
+http://www.theverge.com/reviews/brands/contour/21 sci.crypt
+http://www.theverge.com/reviews/brands/cregle/418 sci.crypt
+http://www.theverge.com/reviews/brands/dark-sky/570 comp.windows.x
+http://www.theverge.com/reviews/brands/dell/25 sci.crypt
+http://www.theverge.com/reviews/brands/dice/520 sci.crypt
+http://www.theverge.com/reviews/brands/dropbox/656 sci.crypt
+http://www.theverge.com/reviews/brands/dropcam/369 sci.crypt
+http://www.theverge.com/reviews/brands/earth-networks/573 sci.crypt
+http://www.theverge.com/reviews/brands/evga/631 sci.crypt
+http://www.theverge.com/reviews/brands/eye-in-the-sky/581 sci.crypt
+http://www.theverge.com/reviews/brands/fetchnotes/611 sci.crypt
+http://www.theverge.com/reviews/brands/fiftythree/526 sci.crypt
+http://www.theverge.com/reviews/brands/fitbit/199 sci.crypt
+http://www.theverge.com/reviews/brands/fleksy/649 sci.crypt
+http://www.theverge.com/reviews/brands/foscam/627 sci.crypt
+http://www.theverge.com/reviews/brands/foursquare/598 sci.crypt
+http://www.theverge.com/reviews/brands/grallr/685 sci.crypt
+http://www.theverge.com/reviews/brands/griffin/253 sci.crypt
+http://www.theverge.com/reviews/brands/hapilabs/554 sci.crypt
+http://www.theverge.com/reviews/brands/huawei/39 sci.crypt
+http://www.theverge.com/reviews/brands/i-blason/637 sci.crypt
+http://www.theverge.com/reviews/brands/incipio/635 sci.crypt
+http://www.theverge.com/reviews/brands/iriver/42 sci.crypt
+http://www.theverge.com/reviews/brands/itmp-technology/690 sci.crypt
+http://www.theverge.com/reviews/brands/jabra/276 sci.crypt
+http://www.theverge.com/reviews/brands/jawbone/212 sci.crypt
+http://www.theverge.com/reviews/brands/jbl/168 sci.crypt
+http://www.theverge.com/reviews/brands/jefit/686 sci.crypt
+http://www.theverge.com/reviews/brands/just-mobile/396 sci.crypt
+http://www.theverge.com/reviews/brands/kale-interactive/660 sci.crypt
+http://www.theverge.com/reviews/brands/kensington/394 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/brands/kobo/44 comp.windows.x
+http://www.theverge.com/reviews/brands/kostya-vasilyev/661 sci.crypt
+http://www.theverge.com/reviews/brands/lg/49 sci.crypt
+http://www.theverge.com/reviews/brands/loop/556 sci.crypt
+http://www.theverge.com/reviews/brands/lunatik/442 sci.crypt
+http://www.theverge.com/reviews/brands/lynktec/443 sci.crypt
+http://www.theverge.com/reviews/brands/maingear/51 comp.windows.x
+http://www.theverge.com/reviews/brands/misfit/599 sci.crypt
+http://www.theverge.com/reviews/brands/moga/527 comp.sys.mac.hardware
+http://www.theverge.com/reviews/brands/mophie/503 sci.crypt
+http://www.theverge.com/reviews/brands/moshi/617 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/brands/mota/640 sci.crypt
+http://www.theverge.com/reviews/brands/motorola/53 comp.windows.x
+http://www.theverge.com/reviews/brands/my-com/657 sci.crypt
+http://www.theverge.com/reviews/brands/nike/373 sci.crypt
+http://www.theverge.com/reviews/brands/nuance-communications-inc/648 sci.crypt
+http://www.theverge.com/reviews/brands/numark/223 sci.crypt
+http://www.theverge.com/reviews/brands/origin/62 comp.windows.x
+http://www.theverge.com/reviews/brands/otterbox/636 sci.crypt
+http://www.theverge.com/reviews/brands/palm/63 sci.crypt
+http://www.theverge.com/reviews/brands/parrot/342 sci.crypt
+http://www.theverge.com/reviews/brands/pentax/66 sci.crypt
+http://www.theverge.com/reviews/brands/perfect-weather/575 comp.windows.x
+http://www.theverge.com/reviews/brands/piper/626 sci.crypt
+http://www.theverge.com/reviews/brands/protogeo/687 sci.crypt
+http://www.theverge.com/reviews/brands/radarscope/579 sci.crypt
+http://www.theverge.com/reviews/brands/scosche/452 comp.windows.x
+http://www.theverge.com/reviews/brands/sennheiser/185 sci.crypt
+http://www.theverge.com/reviews/brands/sensu/440 sci.crypt
+http://www.theverge.com/reviews/brands/solar/577 sci.crypt
+http://www.theverge.com/reviews/brands/soundfreaq/324 sci.crypt
+http://www.theverge.com/reviews/brands/spigen-sgp/395 sci.crypt
+http://www.theverge.com/reviews/brands/steadfast-innovation/609 sci.crypt
+http://www.theverge.com/reviews/brands/steven-king/426 sci.crypt
+http://www.theverge.com/reviews/brands/strava/691 sci.crypt
+http://www.theverge.com/reviews/brands/studio-neat/397 sci.crypt
+http://www.theverge.com/reviews/brands/stylus-labs/610 sci.crypt
+http://www.theverge.com/reviews/brands/targus/399 comp.windows.x
+http://www.theverge.com/reviews/brands/ten-one-design/393 sci.crypt
+http://www.theverge.com/reviews/brands/the-weather-channel/572 sci.crypt
+http://www.theverge.com/reviews/brands/today-weather/578 comp.windows.x
+http://www.theverge.com/reviews/brands/touchfire/447 comp.windows.x
+http://www.theverge.com/reviews/brands/touchpal/652 sci.crypt
+http://www.theverge.com/reviews/brands/typeapp/662 sci.crypt
+http://www.theverge.com/reviews/brands/typo/555 sci.crypt
+http://www.theverge.com/reviews/brands/unu/639 sci.crypt
+http://www.theverge.com/reviews/brands/verizon/262 sci.crypt
+http://www.theverge.com/reviews/brands/wacom/284 sci.crypt
+http://www.theverge.com/reviews/brands/weather-line/576 comp.windows.x
+http://www.theverge.com/reviews/brands/weather-underground/574 sci.crypt
+http://www.theverge.com/reviews/brands/whirlscape/650 sci.crypt
+http://www.theverge.com/reviews/brands/withings/473 sci.crypt
+http://www.theverge.com/reviews/brands/wizard-works/612 sci.crypt
+http://www.theverge.com/reviews/brands/y-cam/625 sci.crypt
+http://www.theverge.com/reviews/brands/yahoo/571 sci.crypt
+http://www.theverge.com/reviews/brands/zagg/451 comp.os.ms-windows.misc
+http://www.theverge.com/reviews/brands/zte/90 sci.crypt
+http://www.theverge.com/2016/3/1/11138240/acer-predator-17-review comp.sys.mac.hardware
+http://www.theverge.com/2016/2/18/11036254/nextbit-robin-phone-review-kickstarter-smartphone sci.electronics
+http://www.theverge.com/2016/2/4/10916304/asus-zenfone-zoom-review-camera-specs misc.forsale
+http://www.theverge.com/2016/2/2/10888636/dell-xps-15-review-windows-10 comp.sys.ibm.pc.hardware
+http://www.theverge.com/2016/1/22/10814282/parrot-bebop-2-drone-review sci.electronics
+http://www.theverge.com/2016/1/19/10787676/under-armour-htc-healthbox-review-connected-fitness sci.electronics
+http://www.theverge.com/2015/12/22/10637856/motorola-moto-360-sport-watch-review rec.motorcycles
+http://www.theverge.com/2015/12/18/10571504/microsoft-lumia-950-xl-review comp.os.ms-windows.misc
+http://www.theverge.com/2015/12/11/9891068/oneplus-x-review-android sci.electronics
+http://www.theverge.com/2015/12/8/9869980/google-pixel-c-tablet-review-android comp.sys.mac.hardware
+http://www.theverge.com/2016/3/4/11155920/i-actually-did-it-thank-you-nilay sci.crypt
+http://www.theverge.com/users/iservin sci.crypt
+http://www.theverge.com/2016/3/4/11164104/the-division-year-1-road-map-what-are-your-thoughts sci.crypt
+http://www.theverge.com/2016/3/4/11163750/oppo-r7-r9-cyanogenmod-how-stable-can-i-expect-it-to-be sci.crypt
+http://www.theverge.com/users/Sheshirdzhija comp.windows.x
+http://www.theverge.com/2016/3/4/11163202/always-on-screen sci.crypt
+http://www.theverge.com/2016/3/4/11162352/ia-the-best-things-in-android-are-free-with-in-app-purchases comp.sys.mac.hardware
+http://www.theverge.com/users/JeffWPa comp.os.ms-windows.misc
+http://www.theverge.com/video/2015/11/19/9760354/ipad-pro-surface-pro-4-comparison comp.sys.mac.hardware

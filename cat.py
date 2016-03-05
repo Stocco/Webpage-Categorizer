@@ -21,6 +21,8 @@ rootlinks=[]
 seen=set()
 saw={}
 traininglinks=[]
+clf=[]
+labels=[]
 
 
 #helper functions
@@ -31,7 +33,7 @@ def hasval(dic,name):
 def textFilter(text):
     arrayofWords = tokenizer.tokenize(text)
     filtered_words = [w for w in arrayofWords if not w in stopwords.words('english')]
-    return filtered_words
+    return " ".join(filtered_words)
 
 def loadtrain(path):
   classes={}
@@ -58,7 +60,7 @@ def AccuracyTest():
   test = open(pathtest).read().split("\n")
   correct=0
   all=0
-  for i in range(500):
+  for i in range(50):
     sample = test[random.randint(0,len(test)-1)].split("\t")
     classt = categorizeTopics(sample[1])
     all = all + 1
@@ -201,17 +203,18 @@ def extendlink(rlink):
     global seen
     global saw
     global traininglinks
+    global clf,labels
     fe=["",0]
     times = [[t,rlink.count(t)] for t in seen]
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 20) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+    if((rlink in seen) | (hasval(saw,fe[0]) > 30) | (rlink.count(".pdf")) | (rlink.count(".jpg")
         |(rlink.count(".tumblr")) | (rlink.count(".exe")))):
          return False
 
     try:
-      web = requests.get(rlink,allow_redirects=False)
+      web = requests.get(rlink,allow_redirects=False,timeout=3)
       soup = BeautifulSoup(web.text,"html.parser")
       links = soup.findAll('a')
       for link in links:
@@ -221,7 +224,8 @@ def extendlink(rlink):
                 if((texto != '') & (len(texto)>500)):
                     seen.add(link)
                     print(link)
-                    traininglinks.append([link,categorizeTopics(texto)])
+                    texto = textFilter(texto)
+                    traininglinks.append([link,labels[clf.predict([texto])]])
                     extendlink(link)
     except:
         print("Exception")
@@ -231,7 +235,7 @@ def main():
   output = open("Links.txt","w")
   output.write("number of links: "+str(len(traininglinks))+"\n")
   for i in traininglinks:
-    output.write(str(i[0])+" category: "+str(i[1])+"\n")
+    output.write(str(i[0])+" "+str(i[1])+"\n")
   output.close()
 
 def svmToolkitTrain():
@@ -257,7 +261,10 @@ def svmToolkitTrain():
                     'rec.sport.baseball','rec.sport.hockey','sci.crypt','sci.electronics','sci.med',
                     'sci.space','soc.religion.christian','talk.politics.guns','talk.politics.mideast','talk.politics.misc',
                     'talk.religion.misc']
+
   count_vect = CountVectorizer()
+  bigram_vectorizer = CountVectorizer(ngram_range=(1,2),token_pattern=r'\b\w+\b',min_df=1)
+  analyze = bigram_vectorizer.build_analyzer()
   train = dados()
   test =dados()
   del docs[len(docs)-1]
@@ -277,9 +284,9 @@ def svmToolkitTrain():
  # x = clf.predict([test.data[15]])
   docs_eval = test.data
   predicted = clf.predict(docs_eval)
-  print("Naive Bayes Results with our Train/test Data")
-  print("Raw Accuracy Naive Bayes: ", np.mean(predicted == test.target))
 
+  #print("Naive Bayes Results with our Train/test Data")
+  #print("Raw Accuracy Naive Bayes: ", np.mean(predicted == test.target))
 
 
   print(metrics.classification_report(test.target, predicted,
@@ -291,12 +298,9 @@ def svmToolkitTrain():
 #Initializing Variables using Training set
 classes,totaldocs,docs = loadtrain(path)
 Voc = float(farmingvoc(classes))
+clf, labels = svmToolkitTrain()
 #main()
-#loadInterest("Links.txt")
 
-AccuracyTest()
-
-#svmToolkitTrain()
 # scrapped
 #  twenty_train = fetch_20newsgroups(subset='train',shuffle='True',random_state=42)
 
