@@ -6,6 +6,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import re
+from sklearn.pipeline import FeatureUnion
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.pipeline import Pipeline
@@ -14,6 +15,15 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 import numpy as np
 tokenizer = RegexpTokenizer(r'\w+')
+class dados(object):
+      data = []
+      target = []
+      target_names=['alt.atheism','comp.graphics','comp.os.ms-windows.misc','comp.sys.ibm.pc.hardware',
+                    'comp.sys.mac.hardware','comp.windows.x','misc.forsale','rec.autos','rec.motorcycles',
+                    'rec.sport.baseball','rec.sport.hockey','sci.crypt','sci.electronics','sci.med',
+                    'sci.space','soc.religion.christian','talk.politics.guns','talk.politics.mideast','talk.politics.misc',
+                    'talk.religion.misc']
+
 #globals DONT TOUCH THEM
 path = "train.txt"
 pathtest = "test.txt"
@@ -97,7 +107,7 @@ def binning(string):
         "talk.politics.misc" : 2,
         "talk.religion.misc" : 1
     }
-    return interest[string]
+    return str(interest[string])
 
 def LabeltoNum(label):
     interest={
@@ -124,11 +134,13 @@ def LabeltoNum(label):
     }
     return int(interest[label])
 
-def loadInterest(path):
+def loadInterestNB(path):
+    # SCRAPPED FUNCTION FOR NOW, USE THE TOOLKIT FUNCTION FOR BETTER RESULTS
     interestClass={1:0,2:0,3:0,4:0}
     interestDoc={1:"",2:"",3:"",4:""}
     totalDocs=0
     fr = open(path)
+
 
     #x[2][2:-2] to extract category label
     for line in fr.readlines():
@@ -143,6 +155,32 @@ def loadInterest(path):
         totalDocs = totalDocs + interestClass[i]
 
     return interestClass,totalDocs,interestDoc
+
+def loadInteresttoolkit(path):
+    # Still working on this function.
+      NBclf = Pipeline([('vect', CountVectorizer()),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', MultinomialNB()),
+ ])
+      bow = Pipeline([('vect', CountVectorizer()),('tfidf', TfidfTransformer())])
+      bi = Pipeline([('bivcect',CountVectorizer(analyzer='char_wb',ngram_range=(2,2),min_df=1)),('tfidf',TfidfTransformer())])
+      fts = FeatureUnion([("bow", bow),("bigram",bi)])
+
+      MultiFeatureclf = Pipeline([('features', fts),
+                                  ('clf', MultinomialNB()),
+
+      ])
+      train_interest = dados()
+      train_interest.target_names=["Not Interested","Maybe Interested","Interested","Very Interested"]
+      fr = open("Links.txt")
+      for line in fr.readlines():
+          line = line.split("\t")
+          line[1] = line[1][:-1]
+          train_interest.data.append(textFilter(striptext(line[0])))
+          train_interest.target.append(binning(line[1]))
+
+      return MultiFeatureclf.fit(train_interest.data,train_interest.target), train_interest.target_names
+
 
 
 #Core Functions
@@ -209,12 +247,12 @@ def extendlink(rlink):
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 30) | (rlink.count(".pdf")) | (rlink.count(".jpg")
-        |(rlink.count(".tumblr")) | (rlink.count(".exe")))):
+    if((rlink in seen) | (hasval(saw,fe[0]) > 50) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+        |(rlink.count(".tumblr")) | (rlink.count(".exe") | (rlink.count("youtube.com"))))):
          return False
 
     try:
-      web = requests.get(rlink,allow_redirects=False,timeout=3)
+      web = requests.get(rlink,allow_redirects=False,timeout=2)
       soup = BeautifulSoup(web.text,"html.parser")
       links = soup.findAll('a')
       for link in links:
@@ -225,7 +263,9 @@ def extendlink(rlink):
                     seen.add(link)
                     print(link)
                     texto = textFilter(texto)
-                    traininglinks.append([link,labels[clf.predict([texto])]])
+                    label = labels[clf.predict([texto])]
+                    newlink = str(link) + "\t" + str(label)
+                    traininglinks.append(newlink)
                     extendlink(link)
     except:
         print("Exception")
@@ -235,7 +275,7 @@ def main():
   output = open("Links.txt","w")
   output.write("number of links: "+str(len(traininglinks))+"\n")
   for i in traininglinks:
-    output.write(str(i[0])+" "+str(i[1])+"\n")
+    output.write(i+"\n")
   output.close()
 
 def svmToolkitTrain():
@@ -253,14 +293,7 @@ def svmToolkitTrain():
  ])
 
 
-  class dados(object):
-      data = []
-      target = []
-      target_names=['alt.atheism','comp.graphics','comp.os.ms-windows.misc','comp.sys.ibm.pc.hardware',
-                    'comp.sys.mac.hardware','comp.windows.x','misc.forsale','rec.autos','rec.motorcycles',
-                    'rec.sport.baseball','rec.sport.hockey','sci.crypt','sci.electronics','sci.med',
-                    'sci.space','soc.religion.christian','talk.politics.guns','talk.politics.mideast','talk.politics.misc',
-                    'talk.religion.misc']
+
 
   count_vect = CountVectorizer()
   bigram_vectorizer = CountVectorizer(ngram_range=(1,2),token_pattern=r'\b\w+\b',min_df=1)
@@ -296,13 +329,14 @@ def svmToolkitTrain():
 
 
 #Initializing Variables using Training set
-classes,totaldocs,docs = loadtrain(path)
-Voc = float(farmingvoc(classes))
-clf, labels = svmToolkitTrain()
+#classes,totaldocs,docs = loadtrain(path)
+#Voc = float(farmingvoc(classes))
+#clf, labels = svmToolkitTrain()
 #main()
 
-# scrapped
-#  twenty_train = fetch_20newsgroups(subset='train',shuffle='True',random_state=42)
+clf,labels = loadInteresttoolkit(pathtest)
+webpage = textFilter(striptext("http://www.pcworld.com/article/3027250/windows/windows-phones-next-life-how-microsoft-could-recast-it-for-productivity-or-services.html"))
+print(clf.predict([webpage]))
 
 
 
