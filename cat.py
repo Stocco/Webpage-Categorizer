@@ -309,7 +309,7 @@ def main():
   output = open("Links.txt","w")
   output.write("number of links: "+str(len(traininglinks))+"\n")
   for i in traininglinks:
-    output.write(i+"\n")
+    output.write(i.encode('UTF-8')+"\n")
   output.close()
 
 def svmToolkitTrain():
