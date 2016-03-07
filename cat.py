@@ -287,7 +287,7 @@ def extendlink(rlink):
       for link in links:
           link = link.get('href')
           if((link.count("http://") | (link.count("https://"))) & (link is not None) & (link not in seen)
-             & (link.count(".tumblr") != 0)):
+             & (link.count(".tumblr") == 0)):
                 texto = striptext(link)
                 if((texto != '') & (len(texto)>250)):
                     seen.add(link)
