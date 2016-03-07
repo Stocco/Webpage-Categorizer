@@ -33,7 +33,28 @@ saw={}
 traininglinks=[]
 clf=[]
 labels=[]
-
+CountCategory={
+        "alt.atheism" : 0,
+        "comp.graphics" : 0,
+        "comp.os.ms-windows.misc" : 0,
+        "comp.sys.ibm.pc.hardware" : 0,
+        "comp.sys.mac.hardware" : 0,
+        "comp.windows.x" : 0,
+        "misc.forsale" : 0,
+        "rec.autos" : 0,
+        "rec.motorcycles" : 0,
+        "rec.sport.baseball" : 0,
+        "rec.sport.hockey" : 0,
+        "sci.crypt" : 0,
+        "sci.electronics"	: 0,
+        "sci.med"	: 0,
+        "sci.space" : 0,
+        "soc.religion.christian" : 0,
+        "talk.politics.guns" : 0,
+        "talk.politics.mideast" : 0,
+        "talk.politics.misc" : 0,
+        "talk.religion.misc" : 0
+    }
 
 #helper functions
 def hasval(dic,name):
@@ -156,7 +177,7 @@ def loadInterestNB(path):
 
     return interestClass,totalDocs,interestDoc
 
-def loadInteresttoolkit(path):
+def loadInteresttoolkit(pathTraining):
     # Still working on this function.
       NBclf = Pipeline([('vect', CountVectorizer()),
                       ('tfidf', TfidfTransformer()),
@@ -172,15 +193,23 @@ def loadInteresttoolkit(path):
       ])
       train_interest = dados()
       train_interest.target_names=["Not Interested","Maybe Interested","Interested","Very Interested"]
-      fr = open("Links.txt")
+      fr = open(pathTraining)
       for line in fr.readlines():
           line = line.split("\t")
           line[1] = line[1][:-1]
-          train_interest.data.append(textFilter(striptext(line[0])))
+          train_interest.data.append(textFilter(line[0]))
           train_interest.target.append(binning(line[1]))
 
-      return MultiFeatureclf.fit(train_interest.data,train_interest.target), train_interest.target_names
+      return NBclf.fit(train_interest.data,train_interest.target), train_interest.target_names
 
+def traininginterest(path):
+    file = open(path)
+    output = open("InterestTrain.txt","w")
+    for line in file.readlines():
+        line = line.split("\t")
+        text = textFilter(striptext(line[0])).encode('UTF-8')
+        output.write(str(text)+"\t"+line[1])
+    output.close()
 
 
 #Core Functions
@@ -241,13 +270,13 @@ def extendlink(rlink):
     global seen
     global saw
     global traininglinks
-    global clf,labels
+    global clf,labels,CountCategory
     fe=["",0]
     times = [[t,rlink.count(t)] for t in seen]
     if(times != []):
         fe = max(times, key=lambda tup: tup[1] )
         saw[fe[0]] = hasval(saw,fe[0]) + 1
-    if((rlink in seen) | (hasval(saw,fe[0]) > 50) | (rlink.count(".pdf")) | (rlink.count(".jpg")
+    if((rlink in seen) | (hasval(saw,fe[0]) > 800) | (rlink.count(".pdf")) | (rlink.count(".jpg")
         |(rlink.count(".tumblr")) | (rlink.count(".exe") | (rlink.count("youtube.com"))))):
          return False
 
@@ -257,16 +286,21 @@ def extendlink(rlink):
       links = soup.findAll('a')
       for link in links:
           link = link.get('href')
-          if((link.count("http://") | (link.count("https://"))) & (link is not None) & (link not in seen)):
+          if((link.count("http://") | (link.count("https://"))) & (link is not None) & (link not in seen)
+             & (link.count(".tumblr") != 0)):
                 texto = striptext(link)
-                if((texto != '') & (len(texto)>500)):
+                if((texto != '') & (len(texto)>250)):
                     seen.add(link)
-                    print(link)
                     texto = textFilter(texto)
                     label = labels[clf.predict([texto])]
-                    newlink = str(link) + "\t" + str(label)
-                    traininglinks.append(newlink)
-                    extendlink(link)
+                    if((CountCategory[label] < 200) & (texto+"\t"+str(label) not in traininglinks)):
+                       print(link)
+                       newlink = texto + "\t" + str(label)
+                       traininglinks.append(newlink)
+                       CountCategory[label] = CountCategory[label] + 1
+                       extendlink(link)
+                    else:
+                        extendlink(link)
     except:
         print("Exception")
 
@@ -327,16 +361,17 @@ def svmToolkitTrain():
 
   return clf,train.target_names
 
+def categorizeInterest(webpage):
+    text = textFilter(striptext(webpage))
+    result = labels[int(clf.predict([text])[0])-1]
+    print(result)
 
 #Initializing Variables using Training set
 #classes,totaldocs,docs = loadtrain(path)
 #Voc = float(farmingvoc(classes))
-#clf, labels = svmToolkitTrain()
-#main()
+clf, labels = svmToolkitTrain()
+main()
 
-clf,labels = loadInteresttoolkit(pathtest)
-webpage = textFilter(striptext("http://www.pcworld.com/article/3027250/windows/windows-phones-next-life-how-microsoft-could-recast-it-for-productivity-or-services.html"))
-print(clf.predict([webpage]))
-
-
+#traininginterest("Links.txt")
+#clf,labels = loadInteresttoolkit("InterestTrain.txt")
 
