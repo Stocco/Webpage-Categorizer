@@ -34,26 +34,26 @@ traininglinks=[]
 clf=[]
 labels=[]
 CountCategory={
-        "alt.atheism" : 0,
-        "comp.graphics" : 0,
-        "comp.os.ms-windows.misc" : 0,
-        "comp.sys.ibm.pc.hardware" : 0,
-        "comp.sys.mac.hardware" : 0,
-        "comp.windows.x" : 0,
-        "misc.forsale" : 0,
-        "rec.autos" : 0,
-        "rec.motorcycles" : 0,
-        "rec.sport.baseball" : 0,
-        "rec.sport.hockey" : 0,
-        "sci.crypt" : 0,
-        "sci.electronics"	: 0,
-        "sci.med"	: 0,
-        "sci.space" : 0,
-        "soc.religion.christian" : 0,
-        "talk.politics.guns" : 0,
-        "talk.politics.mideast" : 0,
-        "talk.politics.misc" : 0,
-        "talk.religion.misc" : 0
+        "alt.atheism" : 1,
+        "comp.graphics" : 1,
+        "comp.os.ms-windows.misc" : 1,
+        "comp.sys.ibm.pc.hardware" : 1,
+        "comp.sys.mac.hardware" : 1,
+        "comp.windows.x" : 1,
+        "misc.forsale" : 1,
+        "rec.autos" : 1,
+        "rec.motorcycles" : 1,
+        "rec.sport.baseball" : 1,
+        "rec.sport.hockey" : 1,
+        "sci.crypt" : 1,
+        "sci.electronics"	: 1,
+        "sci.med"	: 1,
+        "sci.space" : 1,
+        "soc.religion.christian" : 1,
+        "talk.politics.guns" : 1,
+        "talk.politics.mideast" : 1,
+        "talk.politics.misc" : 1,
+        "talk.religion.misc" : 1
     }
 
 #helper functions
@@ -108,11 +108,11 @@ def visible(element):
 def binning(string):
     interest={
         "alt.atheism" : 1,
-        "comp.graphics" : 3,
+        "comp.graphics" : 1,
         "comp.os.ms-windows.misc" : 2,
         "comp.sys.ibm.pc.hardware" : 2,
         "comp.sys.mac.hardware" : 2,
-        "comp.windows.x" : 4,
+        "comp.windows.x" : 2,
         "misc.forsale" : 1,
         "rec.autos" : 1,
         "rec.motorcycles" : 1,
@@ -120,12 +120,12 @@ def binning(string):
         "rec.sport.hockey" : 1,
         "sci.crypt" : 4,
         "sci.electronics"	: 4,
-        "sci.med"	: 3,
+        "sci.med"	: 4,
         "sci.space" : 4,
         "soc.religion.christian" : 1,
         "talk.politics.guns" : 1,
-        "talk.politics.mideast" : 2,
-        "talk.politics.misc" : 2,
+        "talk.politics.mideast" : 1,
+        "talk.politics.misc" : 1,
         "talk.religion.misc" : 1
     }
     return str(interest[string])
@@ -195,12 +195,14 @@ def loadInteresttoolkit(pathTraining):
       train_interest.target_names=["Not Interested","Maybe Interested","Interested","Very Interested"]
       fr = open(pathTraining)
       for line in fr.readlines():
-          line = line.split("\t")
-          line[1] = line[1][:-1]
-          train_interest.data.append(textFilter(line[0]))
-          train_interest.target.append(binning(line[1]))
+          line = line.split("sepbword")
+          line[1] = line[1][:-2]
+          line[1] = line[1].strip()
+          if(line[1] != "comp.windows.x"):
+            train_interest.data.append(textFilter(line[0]))
+            train_interest.target.append(binning(line[1]))
 
-      return NBclf.fit(train_interest.data,train_interest.target), train_interest.target_names
+      return MultiFeatureclf.fit(train_interest.data,train_interest.target), train_interest.target_names
 
 def traininginterest(path):
     file = open(path)
@@ -270,7 +272,7 @@ def extendlink(rlink):
     global seen
     global saw
     global traininglinks
-    global clf,labels,CountCategory
+    global clf,labels,CountCategory,clf2,labels2
     fe=["",0]
     times = [[t,rlink.count(t)] for t in seen]
     if(times != []):
@@ -293,9 +295,12 @@ def extendlink(rlink):
                     seen.add(link)
                     texto = textFilter(texto)
                     label = labels[clf.predict([texto])]
-                    if((CountCategory[label] < 200) & (texto+"\t"+str(label) not in traininglinks)):
-                       print(link)
-                       newlink = texto + "\t" + str(label)
+                    total=0
+                    for ts in CountCategory: total = total + CountCategory[ts]
+
+                    if((CountCategory[label]/total <= 0.2) & (texto+"\t"+str(label) not in traininglinks)):
+                       print(link + " " +  str(CountCategory[label]/total))
+                       newlink = texto + "sepbword" + str(label)
                        traininglinks.append(newlink)
                        CountCategory[label] = CountCategory[label] + 1
                        extendlink(link)
@@ -309,12 +314,11 @@ def main():
   output = open("Links.txt","w")
   output.write("number of links: "+str(len(traininglinks))+"\n")
   for i in traininglinks:
-    output.write(i.encode('UTF-8')+"\n")
+    output.write(str(i.encode('UTF-8'))+"\n")
   output.close()
 
 def svmToolkitTrain():
   docs = open(path).read().split("\n")
-  docstest = open(pathtest).read().split("\n")
   text_clf = Pipeline([('vect', CountVectorizer()),
                       ('tfidf', TfidfTransformer()),
                       ('clf', SGDClassifier(loss='hinge', penalty='l2',
@@ -326,52 +330,80 @@ def svmToolkitTrain():
                       ('clf', MultinomialNB()),
  ])
 
-
-
-
-  count_vect = CountVectorizer()
-  bigram_vectorizer = CountVectorizer(ngram_range=(1,2),token_pattern=r'\b\w+\b',min_df=1)
-  analyze = bigram_vectorizer.build_analyzer()
+ # count_vect = CountVectorizer()
+  #bigram_vectorizer = CountVectorizer(ngram_range=(1,2),token_pattern=r'\b\w+\b',min_df=1)
+  #analyze = bigram_vectorizer.build_analyzer()
   train = dados()
-  test =dados()
   del docs[len(docs)-1]
   for i in docs:
       doc = i.split("\t")
       train.data.append(doc[1])
       train.target.append(LabeltoNum(doc[0]))
 
-  del docstest[len(docstest)-1]
-  for i in docstest:
-      doc = i.split("\t")
-      test.data.append(doc[1])
-      test.target.append(LabeltoNum(doc[0]))
-
   clf = NBclf.fit(train.data,train.target)
 
  # x = clf.predict([test.data[15]])
-  docs_eval = test.data
-  predicted = clf.predict(docs_eval)
+
 
   #print("Naive Bayes Results with our Train/test Data")
   #print("Raw Accuracy Naive Bayes: ", np.mean(predicted == test.target))
 
-
-  print(metrics.classification_report(test.target, predicted,
-      target_names=test.target_names))
-
   return clf,train.target_names
+
+def cross10foldvalidation():
+    clfEval = Pipeline([('vect', CountVectorizer()),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', MultinomialNB()),
+ ])
+    test =dados()
+    docstest = open(pathtest).read().split("\n")
+    del docstest[len(docstest)-1]
+    crossvalidation=[[nat,0,0,0] for nat in test.target_names]
+    for cross in range(0,10):
+        del test
+        test = dados()
+        begin = random.randint(0,len(docstest)-5)
+        end = random.randint(begin,len(docstest)-1)
+        for i in range(begin,end):
+          doc = docstest[i].split("\t")
+          test.data.append(doc[1])
+          test.target.append(LabeltoNum(doc[0]))
+        docs_eval = test.data
+        predicted = clf.predict(docs_eval)
+        z = metrics.classification_report(test.target, predicted,
+          target_names=test.target_names)
+        pieces = z.split("\n")
+        for p in range(2,22):
+            values = pieces[p].split(" ")
+            valsaux=[]
+            for i in values:
+                if((i != "") & (i != " ")): valsaux.append(i)
+            crossvalidation[p-2] = [crossvalidation[p-2][0],crossvalidation[p-2][1]+float(valsaux[1]),crossvalidation[p-2][2]+
+                                  float(valsaux[2]),crossvalidation[p-2][3]+float(valsaux[3])]
+    Niceprint=[]
+    Niceprint.append(["category","precision","recall","f-score"])
+    average = ["",0,0,0]
+    for res in crossvalidation:
+        curr = []
+        for count,item in enumerate(res):
+            if(count != 0): item = round(item/10,2)
+            curr.append(item)
+            average[count] = average[count] + item
+        Niceprint.append(curr)
+    Niceprint.append(["Average",round(average[1]/20,2),round(average[2]/20,2),round(average[3]/20,2)])
+    print(np.array(Niceprint))
+
 
 def categorizeInterest(webpage):
     text = textFilter(striptext(webpage))
-    result = labels[int(clf.predict([text])[0])-1]
-    print(result)
+    result = labels2[int(clf2.predict([text])[0])-1]
+    return result
 
 #Initializing Variables using Training set
 #classes,totaldocs,docs = loadtrain(path)
 #Voc = float(farmingvoc(classes))
 clf, labels = svmToolkitTrain()
-main()
-
-#traininginterest("Links.txt")
-#clf,labels = loadInteresttoolkit("InterestTrain.txt")
-
+#main()
+cross10foldvalidation()
+#clf2,labels2 = loadInteresttoolkit("Links.txt")
+#main()
