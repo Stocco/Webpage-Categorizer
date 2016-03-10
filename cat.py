@@ -108,19 +108,19 @@ def visible(element):
 def binning(string):
     interest={
         "alt.atheism" : 1,
-        "comp.graphics" : 1,
-        "comp.os.ms-windows.misc" : 2,
+        "comp.graphics" : 3,
+        "comp.os.ms-windows.misc" : 3,
         "comp.sys.ibm.pc.hardware" : 2,
-        "comp.sys.mac.hardware" : 2,
-        "comp.windows.x" : 2,
-        "misc.forsale" : 1,
-        "rec.autos" : 1,
-        "rec.motorcycles" : 1,
-        "rec.sport.baseball" : 1,
-        "rec.sport.hockey" : 1,
-        "sci.crypt" : 4,
-        "sci.electronics"	: 4,
-        "sci.med"	: 4,
+        "comp.sys.mac.hardware" : 4,
+        "comp.windows.x" : 4,
+        "misc.forsale" : 2,
+        "rec.autos" : 3,
+        "rec.motorcycles" : 2,
+        "rec.sport.baseball" : 2,
+        "rec.sport.hockey" : 2,
+        "sci.crypt" : 2,
+        "sci.electronics"	: 3,
+        "sci.med"	: 3,
         "sci.space" : 4,
         "soc.religion.christian" : 1,
         "talk.politics.guns" : 1,
@@ -195,12 +195,13 @@ def loadInteresttoolkit(pathTraining):
       train_interest.target_names=["Not Interested","Maybe Interested","Interested","Very Interested"]
       fr = open(pathTraining)
       for line in fr.readlines():
-          line = line.split("sepbword")
-          line[1] = line[1][:-2]
-          line[1] = line[1].strip()
-          if(line[1] != "comp.windows.x"):
-            train_interest.data.append(textFilter(line[0]))
-            train_interest.target.append(binning(line[1]))
+          if(line is not '\n'):
+              line = line.split("sepbword")
+              line[1] = line[1][:-2]
+              line[1] = line[1].strip()
+              if((line[1] != "comp.sys.mac.hardware") & (line[1] != "sci.crypt")):
+                train_interest.data.append(textFilter(line[0]))
+                train_interest.target.append(binning(line[1]))
 
       return MultiFeatureclf.fit(train_interest.data,train_interest.target), train_interest.target_names
 
@@ -297,9 +298,8 @@ def extendlink(rlink):
                     label = labels[clf.predict([texto])]
                     total=0
                     for ts in CountCategory: total = total + CountCategory[ts]
-
-                    if((CountCategory[label]/total <= 0.2) & (texto+"\t"+str(label) not in traininglinks)):
-                       print(link + " " +  str(CountCategory[label]/total))
+                    print(link + " " +  categorizeInterest(link))
+                    if((CountCategory[label]/total <= 0.2) & (texto+"sepbword"+str(label) not in traininglinks)):
                        newlink = texto + "sepbword" + str(label)
                        traininglinks.append(newlink)
                        CountCategory[label] = CountCategory[label] + 1
@@ -393,7 +393,6 @@ def cross10foldvalidation():
     Niceprint.append(["Average",round(average[1]/20,2),round(average[2]/20,2),round(average[3]/20,2)])
     print(np.array(Niceprint))
 
-
 def categorizeInterest(webpage):
     text = textFilter(striptext(webpage))
     result = labels2[int(clf2.predict([text])[0])-1]
@@ -402,8 +401,10 @@ def categorizeInterest(webpage):
 #Initializing Variables using Training set
 #classes,totaldocs,docs = loadtrain(path)
 #Voc = float(farmingvoc(classes))
-clf, labels = svmToolkitTrain()
+#clf, labels = svmToolkitTrain()
+
 #main()
-cross10foldvalidation()
+#cross10foldvalidation()
 #clf2,labels2 = loadInteresttoolkit("Links.txt")
+#print(labels2)
 #main()
