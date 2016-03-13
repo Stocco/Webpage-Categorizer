@@ -311,11 +311,12 @@ def extendlink(rlink):
 
 def main():
   scrapper("http://www.theverge.com/")
-  output = open("Links.txt","w")
-  output.write("number of links: "+str(len(traininglinks))+"\n")
-  for i in traininglinks:
-    output.write(str(i.encode('UTF-8'))+"\n")
-  output.close()
+  # REMOVE COMENT SYMBOL IF YOU WANT TO BUILT ANOTHER LINK.TXT TRAINING SET
+  #output = open("Links.txt","w")
+  #output.write("number of links: "+str(len(traininglinks))+"\n")
+  #for i in traininglinks:
+   # output.write(str(i.encode('UTF-8'))+"\n")
+  #output.close()
 
 def svmToolkitTrain():
   docs = open(path).read().split("\n")
@@ -351,9 +352,14 @@ def svmToolkitTrain():
   return clf,train.target_names
 
 def cross10foldvalidation():
-    clfEval = Pipeline([('vect', CountVectorizer()),
+    clfEva = Pipeline([('vect', CountVectorizer()),
                       ('tfidf', TfidfTransformer()),
                       ('clf', MultinomialNB()),
+ ])
+    clfEval = Pipeline([('vect', CountVectorizer()),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', SGDClassifier(loss='hinge', penalty='l2',
+                                            alpha=1e-3, n_iter=5, random_state=42)),
  ])
     test =dados()
     docstest = open(pathtest).read().split("\n")
@@ -398,13 +404,16 @@ def categorizeInterest(webpage):
     result = labels2[int(clf2.predict([text])[0])-1]
     return result
 
-#Initializing Variables using Training set
+#================== OURS NAIVE BAYES BUILT FROM SCRATH ==============================
 #classes,totaldocs,docs = loadtrain(path)
 #Voc = float(farmingvoc(classes))
-#clf, labels = svmToolkitTrain()
+#=====================================================================================
 
-#main()
+#========================= SCI KIT NAIVE BAYES OR SVM DEPENDING ON WHAT IS HARD CODED ===================
+clf, labels = svmToolkitTrain()
+
 #cross10foldvalidation()
-#clf2,labels2 = loadInteresttoolkit("Links.txt")
-#print(labels2)
-#main()
+#==============================THE SECOND CATEGORIZATION PASS MODEL BUILDER ===================================
+clf2,labels2 = loadInteresttoolkit("Links.txt")
+
+main()
